@@ -1,5 +1,4 @@
 import { useReducer, useState } from 'react';
-import reactLogo from './assets/react.svg';
 import './App.css';
 
 
@@ -65,6 +64,9 @@ function App() {
         </button>
       </div>
 
+      <footer>
+        <a href="https://github.com/Caisere/clean-simple-usereducer.git">github repo</a>
+      </footer>
     </div>
   );
 }
