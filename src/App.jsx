@@ -38,28 +38,37 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialValues);
   const {count, value, showCount} = state;
+
+  // handler for count
+  function handleCount (e){
+    dispatch({ type: 'count', payload: Number(e.target.value) });
+  }
+
+  // handler for set
+  function handleSet() {
+    dispatch({ type: 'set', payload: value });
+  }
+
+  // handler for reset
+  function handleReset () {
+    dispatch({type: 'reset'})
+  }
+
   return (
     <div className="App">
       {showCount && <div>{count}</div>}
       <input
         type="text"
         value={value}
-        onChange={(e) => {
-          console.log(e.target.value);
-          dispatch({ type: 'count', payload: Number(e.target.value) });
-        }}
+        onChange={handleCount}
       />
       <div className="card">
         <button
-          onClick={() => {
-            dispatch({ type: 'set', payload: value });
-          }}
+          onClick={handleSet}
         >
           set
         </button>
-        <button onClick={(e) =>{
-          dispatch({type: 'reset'})}
-        }>
+        <button onClick={handleReset}>
           reset
         </button>
       </div>
