@@ -27,7 +27,6 @@ function reducer(state, action) {
       {
         return {state}
       }
-      break;
     default: {
       throw new Error('unknown action type')
     }
@@ -46,6 +45,7 @@ function App() {
 
   // handler for set
   function handleSet() {
+    if (!value) return
     dispatch({ type: 'set', payload: value });
   }
 
